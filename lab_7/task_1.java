@@ -1,3 +1,7 @@
+//A traveler wants to go from city A to city B. It turns out that between the cities there is a huge rectangular desert. On his way, the traveler may find chests with coins or robbers who can take away some coins.
+// The goal of the traveler is to get from A to B while leaving as many coins for himself as possible.
+// The traveler can only move one square to the right or down at a time.
+
 package lab_7;
 
 import java.io.FileReader;

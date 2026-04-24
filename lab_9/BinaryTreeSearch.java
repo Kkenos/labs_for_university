@@ -2,7 +2,7 @@ package lab_9;
 
 public class BinaryTreeSearch {
     public static class TreeNode {
-        private int data;
+        int data;
         TreeNode left;
         TreeNode right;
 
@@ -153,3 +153,4 @@ public class BinaryTreeSearch {
     }
 
 }
+

@@ -14,7 +14,7 @@ public class checklink {
         while(true) {
             System.out.println("Добавляем пару?(yes/no)");
             String check = scanner.nextLine();
-            if (check == "no") {
+            if (check.equals("no")) {
                 break;
             }
             System.out.println("напиши пару чтобы добавить:");
@@ -31,18 +31,12 @@ public class checklink {
             storage.add(link);
         }
     }
-    void checkConnectivity(List<List<Integer>> sample){
-        List<Integer> collect = new ArrayList<>();
-        collect.addAll(sample.get(0));
-        for (int i = 1; i < sample.size(); i++) {
-            List<Integer> currPair = sample.get(i);
-            for (int j = 0; j < currPair.size(); j++) {
-                if((currPair.get(j) == collect.get(0)) || (currPair.get(j) == collect.get(1))){
-                    collect.add(currPair.get(j));
-                    collect.add(currPair.get(j+1));
-                }
-            }
+    void DFS (List<List<Integer>> storage){
+        boolean[] visited = new boolean[count];
+        for(int i = 0; i < count ; i++){
+            if(!visited[i]){
 
+            }
         }
     }
 

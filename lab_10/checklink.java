@@ -5,39 +5,47 @@ import java.util.List;
 import java.util.Scanner;
 
 public class checklink {
-    List<List<Integer>> storage = new ArrayList<>();
+    List<List<Integer>> adj = new ArrayList<>();
 
-    Scanner scanner = new Scanner(System.in);
-    int count = scanner.nextInt();
+    boolean[] visited;
 
-    void add(){
-        while(true) {
-            System.out.println("Добавляем пару?(yes/no)");
-            String check = scanner.nextLine();
-            if (check.equals("no")) {
+
+
+    public void addSublist(int n){
+        for(int i = 0; i < n; i++){
+            adj.add(new ArrayList<>());
+        }
+    }
+    public void addEdge(Scanner input){
+        while(input.hasNextInt()){
+            int u = input.nextInt();
+            if(!input.hasNextInt()){
                 break;
             }
-            System.out.println("напиши пару чтобы добавить:");
-            List<Integer> link = new ArrayList<>();
-            for (int i = 0; i < 2; i++) {
-                int num = scanner.nextInt();
-                if (num > count) {
-                    System.out.println("Не-а");
-                    return;
-                } else {
-                    link.add(num);
-                }
-            }
-            storage.add(link);
+            int v = input.nextInt();
+            adj.get(u).add(v);
+            adj.get(v).add(u);
         }
     }
-    void DFS (List<List<Integer>> storage){
-        boolean[] visited = new boolean[count];
-        for(int i = 0; i < count ; i++){
+    public void DFS(int u,boolean[] visited,List<Integer> component){
+        visited[u] = true;
+        component.add(u);
+        for(int v : adj.get(u)){
+            if(!visited[v]){
+                DFS(v,visited,component);
+            }
+        }
+    }
+    public List<List<Integer>> findComponents(int n){
+        boolean[] visited = new boolean[n];
+        List<List<Integer>> component = new ArrayList<>();
+        for(int i = 0; i < n; i++){
             if(!visited[i]){
-
+                List<Integer> sublist = new ArrayList<>();
+                DFS(i,visited,sublist);
+                component.add(sublist);
             }
         }
+        return component;
     }
-
 }

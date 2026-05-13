@@ -13,7 +13,7 @@ public class task2 {
             TopologySort ts = new TopologySort();
             ts.init(n);
 
-            System.out.println("Введите пары вершин (u v) для ребер u -> v.");
+            System.out.println("Введите пары вершин (u v) для ребер u -> v. на ctrlD перестать заполнять");
             ts.addEdge(input);
 
             System.out.println("Результат топологической сортировки:");

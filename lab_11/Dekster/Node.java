@@ -7,10 +7,14 @@ import static java.lang.Double.MAX_VALUE;
 public class Node {
     double x, y;
     long id;
-    double minDistance = MAX_VALUE;;
+    public double minDistance = MAX_VALUE;
     Node parent = null;
 
-   ArrayList<Edge> neighbors = new ArrayList<>();
+    public double distanceTo(Node otherNode){
+        return Math.sqrt(Math.pow(x - otherNode.x, 2) + Math.pow(y - otherNode.y, 2));
+    }
+
+    ArrayList<Edge> neighbors = new ArrayList<>();
     Node(long id, double x,double y) {
         this.id = id;
         this.x = x;

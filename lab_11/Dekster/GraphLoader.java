@@ -40,7 +40,7 @@ public class GraphLoader {
                 Node u = nodeMap.get(uId);
 
                 if(v != null && u != null){
-                    double weight = Math.sqrt(Math.pow(v.x - v.y, 2) +  Math.pow(u.x - u.y, 2));
+                    double weight = Math.sqrt(Math.pow(v.x - u.x, 2) +  Math.pow(v.y - u.y, 2));
                     u.addNeighbor(vId, weight);
                     v.addNeighbor(uId, weight);
                 }
